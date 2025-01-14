@@ -116,12 +116,12 @@ end
 
 GlitchTab:CreateSection("Orb Collection")
 
--- Button to collect 500000 Ethereal Orbs continuously
+-- Button to collect 100000 Ethereal Orbs continuously
 GlitchTab:CreateButton({
-    Name = "Start Ethereal Orb (500000 Iterations)",
+    Name = "Start Ethereal Orb (100000 Iterations)",
     Callback = function()
         local count = 0
-        while count < 500000 do
+        while count < 100000 do
             local args = {
                 [1] = "collectOrb",
                 [2] = "Ethereal Orb",
@@ -131,19 +131,19 @@ GlitchTab:CreateButton({
             count = count + 1
         end
         Rayfield:Notify({
-            Title = "500000 Ethereal Orbs Collected",
-            Content = "Successfully collected 500000 Ethereal Orbs!",
+            Title = "100000 Ethereal Orbs Collected",
+            Content = "Successfully collected 100000 Ethereal Orbs!",
             Duration = 3
         })
     end
 })
 
--- Button to collect 500000 Yellow Orbs continuously
+-- Button to collect 100000 Yellow Orbs continuously
 GlitchTab:CreateButton({
     Name = "Start Yellow Orb (500000 Iterations)",
     Callback = function()
         local count = 0
-        while count < 600000 do
+        while count < 500000 do
             local args = {
                 [1] = "collectOrb",
                 [2] = "Yellow Orb",
@@ -154,18 +154,18 @@ GlitchTab:CreateButton({
         end
         Rayfield:Notify({
             Title = "500000 Yellow Orbs Collected",
-            Content = "Successfully collected 500000Yellow Orbs!",
+            Content = "Successfully collected 500000 Yellow Orbs!",
             Duration = 3
         })
     end
 })
 
--- Button to collect 500000 Red Orbs continuously
+-- Button to collect 10000 Red Orbs continuously
 GlitchTab:CreateButton({
-    Name = "Start Red Orb (500000 Iterations)",
+    Name = "Start Red Orb (10000 Iterations)",
     Callback = function()
         local count = 0
-        while count < 500000 do
+        while count < 100000 do
             local args = {
                 [1] = "collectOrb",
                 [2] = "Red Orb",
@@ -175,8 +175,8 @@ GlitchTab:CreateButton({
             count = count + 1
         end
         Rayfield:Notify({
-            Title = "500000 Red Orbs Collected",
-            Content = "Successfully collected 500000 Red Orbs!",
+            Title = "100000 Red Orbs Collected",
+            Content = "Successfully collected 10000 Red Orbs!",
             Duration = 3
         })
     end
@@ -289,5 +289,5 @@ MiscTab:CreateButton({
 Rayfield:Notify({
     Title = "Script Executed",
     Content = "Crazy Hub loaded successfully with all features!",
-    Duration = 1
+    Duration = 3
 })
