@@ -1,0 +1,80 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "Legends Of Speed Op script",
+    Icon = 0,
+    LoadingTitle = "Crazy Hub",
+    LoadingSubtitle = "by Shadwk",
+    Theme = "DarkBlue",
+
+    DisableRayfieldPrompts = false,
+    DisableBuildWarnings = false,
+
+    ConfigurationSaving = {
+        Enabled = false,
+        FolderName = nil,
+        FileName = "Crazy Hub"
+    },
+
+    Discord = {
+        Enabled = true,
+        Invite = "https://discord.gg/EMQJKsed", -- Updated Discord link
+        RememberJoins = true
+    },
+
+    KeySystem = false,
+    KeySettings = {
+        Title = "Untitled",
+        Subtitle = "Key System",
+        Note = "No method of obtaining the key is provided",
+        FileName = "Key",
+        SaveKey = true,
+        GrabKeyFromSite = false,
+        Key = {"Hello"}
+    }
+})
+
+-- Home Tab
+local HomeTab = Window:CreateTab("Home🏠", 4483362458)
+HomeTab:CreateSection("Discord Link")
+
+-- Add Copy Link Button
+HomeTab:CreateButton({
+    Name = "Copy Discord Link",
+    Callback = function()
+        -- Copy the Discord link to the clipboard
+        setclipboard("https://discord.gg/EMQJKsed")
+        Rayfield:Notify({
+            Title = "Copied!",
+            Content = "The Discord link has been copied to your clipboard.",
+            Duration = 3
+        })
+    end
+})
+
+
+-- Home Tab: Insta Samurai Pet
+local HomeTab = Window:CreateTab("Home🏠", 4483362458)
+HomeTab:CreateSection("Insta Samurai pet")
+
+Rayfield:Notify({
+    Title = "You Executed The script",
+    Content = "Crazy",
+    Duration = 3,
+    Image = 4483362458,
+})
+
+HomeTab:CreateButton({
+    Name = "Insta Neon",
+    Callback = function()
+        while true do
+            local args = {
+                [1] = game:GetService("ReplicatedStorage").cPetShopFolder:FindFirstChild("Twin Element Birdies")
+            }
+            game:GetService("ReplicatedStorage").cPetShopRemote:InvokeServer(unpack(args))
+            wait(1) -- Waits for 1 second before the next iteration
+        end
+    end,
+
+})    
+    
