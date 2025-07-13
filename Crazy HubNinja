@@ -1,10 +1,9 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-    Name = "Legends Of Speed Op script",
-    Icon = 0,
+    Name = "Legends Of Speed OP Script",
     LoadingTitle = "Crazy Hub",
-    LoadingSubtitle = "by Shadwk",
+    LoadingSubtitle = "by Ivan",
     Theme = "DarkBlue",
 
     DisableRayfieldPrompts = false,
@@ -18,31 +17,19 @@ local Window = Rayfield:CreateWindow({
 
     Discord = {
         Enabled = true,
-        Invite = "https://discord.gg/EMQJKsed", -- Updated Discord link
+        Invite = "https://discord.gg/EMQJKsed",
         RememberJoins = true
     },
 
-    KeySystem = false,
-    KeySettings = {
-        Title = "Untitled",
-        Subtitle = "Key System",
-        Note = "No method of obtaining the key is provided",
-        FileName = "Key",
-        SaveKey = true,
-        GrabKeyFromSite = false,
-        Key = {"Hello"}
-    }
+    KeySystem = false
 })
 
--- Home Tab
 local HomeTab = Window:CreateTab("Home🏠", 4483362458)
 HomeTab:CreateSection("Discord Link")
 
--- Add Copy Link Button
 HomeTab:CreateButton({
     Name = "Copy Discord Link",
     Callback = function()
-        -- Copy the Discord link to the clipboard
         setclipboard("https://discord.gg/EMQJKsed")
         Rayfield:Notify({
             Title = "Copied!",
@@ -52,29 +39,45 @@ HomeTab:CreateButton({
     end
 })
 
-
--- Home Tab: Insta Samurai Pet
-local HomeTab = Window:CreateTab("Home🏠", 4483362458)
-HomeTab:CreateSection("Insta Samurai pet")
+HomeTab:CreateSection("Insta Samurai Pet")
 
 Rayfield:Notify({
-    Title = "You Executed The script",
+    Title = "You Executed The Script",
     Content = "Crazy",
     Duration = 3,
-    Image = 4483362458,
+    Image = 4483362458
 })
 
-HomeTab:CreateButton({
-    Name = "Insta Neon",
-    Callback = function()
-        while true do
-            local args = {
-                [1] = game:GetService("ReplicatedStorage").cPetShopFolder:FindFirstChild("Twin Element Birdies")
-            }
-            game:GetService("ReplicatedStorage").cPetShopRemote:InvokeServer(unpack(args))
-            wait(1) -- Waits for 1 second before the next iteration
-        end
-    end,
+-- 🟢 Toggle Setup
+local farming = false
 
-})    
-    
+HomeTab:CreateToggle({
+    Name = "Auto Insta Neon Pet",
+    CurrentValue = false,
+    Callback = function(Value)
+        farming = Value
+        if farming then
+            Rayfield:Notify({
+                Title = "Auto Pet",
+                Content = "Started auto spawning Neon pet.",
+                Duration = 3
+            })
+
+            task.spawn(function()
+                while farming do
+                    local pet = game:GetService("ReplicatedStorage").cPetShopFolder:FindFirstChild("Twin Element Birdies")
+                    if pet then
+                        game:GetService("ReplicatedStorage").cPetShopRemote:InvokeServer(pet)
+                    end
+                    task.wait(1)
+                end
+            end)
+        else
+            Rayfield:Notify({
+                Title = "Auto Pet",
+                Content = "Stopped auto spawning Neon pet.",
+                Duration = 3
+            })
+        end
+    end
+})
